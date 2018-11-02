@@ -12,8 +12,14 @@
 		8054BE371F5C0A5900A67CB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8054BE351F5C0A5900A67CB7 /* Main.storyboard */; };
 		8054BE391F5C0A5900A67CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8054BE381F5C0A5900A67CB7 /* Assets.xcassets */; };
 		8054BE3C1F5C0A5900A67CB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8054BE3A1F5C0A5900A67CB7 /* LaunchScreen.storyboard */; };
-		8054BE471F5C0A5900A67CB7 /* DicePuzzleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8054BE461F5C0A5900A67CB7 /* DicePuzzleTests.swift */; };
 		8054BE521F5C0A5900A67CB7 /* DicePuzzleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8054BE511F5C0A5900A67CB7 /* DicePuzzleUITests.swift */; };
+		8090FE88218CC40800420903 /* todo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8090FE87218CC40800420903 /* todo.txt */; };
+		8090FE8A218CC47200420903 /* DiceBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090FE89218CC47200420903 /* DiceBoardTests.swift */; };
+		8090FE8E218CD02300420903 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090FE8D218CD02300420903 /* Dice.swift */; };
+		8090FE90218CD02E00420903 /* DiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090FE8F218CD02E00420903 /* DiceTests.swift */; };
+		8090FE92218CDD2800420903 /* Diagonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090FE91218CDD2800420903 /* Diagonal.swift */; };
+		8090FE94218CDD5A00420903 /* DiceBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090FE93218CDD5A00420903 /* DiceBoard.swift */; };
+		8090FE96218CE17300420903 /* DiceSwapDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090FE95218CE17300420903 /* DiceSwapDirection.swift */; };
 		8C29CD3D6056326D5B335F4B /* Pods_DicePuzzleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6EAAABD272F19CBCC2B2F0 /* Pods_DicePuzzleUITests.framework */; };
 		CC40F44651A89EEA2D6C1920 /* Pods_DicePuzzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3316CCC213A854C1ADC6AE /* Pods_DicePuzzle.framework */; };
 		D0739246AE01FC1C38799B57 /* Pods_DicePuzzleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868EA26801C5170A4D41956C /* Pods_DicePuzzleTests.framework */; };
@@ -48,11 +54,17 @@
 		8054BE3B1F5C0A5900A67CB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8054BE3D1F5C0A5900A67CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8054BE421F5C0A5900A67CB7 /* DicePuzzleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DicePuzzleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8054BE461F5C0A5900A67CB7 /* DicePuzzleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicePuzzleTests.swift; sourceTree = "<group>"; };
 		8054BE481F5C0A5900A67CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8054BE4D1F5C0A5900A67CB7 /* DicePuzzleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DicePuzzleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8054BE511F5C0A5900A67CB7 /* DicePuzzleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicePuzzleUITests.swift; sourceTree = "<group>"; };
 		8054BE531F5C0A5900A67CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8090FE87218CC40800420903 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
+		8090FE89218CC47200420903 /* DiceBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceBoardTests.swift; sourceTree = "<group>"; };
+		8090FE8D218CD02300420903 /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
+		8090FE8F218CD02E00420903 /* DiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceTests.swift; sourceTree = "<group>"; };
+		8090FE91218CDD2800420903 /* Diagonal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diagonal.swift; sourceTree = "<group>"; };
+		8090FE93218CDD5A00420903 /* DiceBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceBoard.swift; sourceTree = "<group>"; };
+		8090FE95218CE17300420903 /* DiceSwapDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSwapDirection.swift; sourceTree = "<group>"; };
 		868EA26801C5170A4D41956C /* Pods_DicePuzzleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DicePuzzleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		894CEC8082356A248A416D38 /* Pods-DicePuzzleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DicePuzzleUITests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-DicePuzzleUITests/Pods-DicePuzzleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D6EAAABD272F19CBCC2B2F0 /* Pods_DicePuzzleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DicePuzzleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,12 +136,14 @@
 		8054BE301F5C0A5900A67CB7 /* DicePuzzle */ = {
 			isa = PBXGroup;
 			children = (
+				8090FE8B218CD00E00420903 /* Domain */,
 				8054BE311F5C0A5900A67CB7 /* AppDelegate.swift */,
 				8054BE331F5C0A5900A67CB7 /* ViewController.swift */,
 				8054BE351F5C0A5900A67CB7 /* Main.storyboard */,
 				8054BE381F5C0A5900A67CB7 /* Assets.xcassets */,
 				8054BE3A1F5C0A5900A67CB7 /* LaunchScreen.storyboard */,
 				8054BE3D1F5C0A5900A67CB7 /* Info.plist */,
+				8090FE87218CC40800420903 /* todo.txt */,
 			);
 			path = DicePuzzle;
 			sourceTree = "<group>";
@@ -137,7 +151,7 @@
 		8054BE451F5C0A5900A67CB7 /* DicePuzzleTests */ = {
 			isa = PBXGroup;
 			children = (
-				8054BE461F5C0A5900A67CB7 /* DicePuzzleTests.swift */,
+				8090FE8C218CD01400420903 /* Domain */,
 				8054BE481F5C0A5900A67CB7 /* Info.plist */,
 			);
 			path = DicePuzzleTests;
@@ -150,6 +164,26 @@
 				8054BE531F5C0A5900A67CB7 /* Info.plist */,
 			);
 			path = DicePuzzleUITests;
+			sourceTree = "<group>";
+		};
+		8090FE8B218CD00E00420903 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				8090FE8D218CD02300420903 /* Dice.swift */,
+				8090FE91218CDD2800420903 /* Diagonal.swift */,
+				8090FE93218CDD5A00420903 /* DiceBoard.swift */,
+				8090FE95218CE17300420903 /* DiceSwapDirection.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		8090FE8C218CD01400420903 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				8090FE8F218CD02E00420903 /* DiceTests.swift */,
+				8090FE89218CC47200420903 /* DiceBoardTests.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		A3470F4519EFBD663F617498 /* Pods */ = {
@@ -246,6 +280,7 @@
 					};
 					8054BE411F5C0A5900A67CB7 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 						TestTargetID = 8054BE2D1F5C0A5900A67CB7;
 					};
@@ -281,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8090FE88218CC40800420903 /* todo.txt in Resources */,
 				8054BE3C1F5C0A5900A67CB7 /* LaunchScreen.storyboard in Resources */,
 				8054BE391F5C0A5900A67CB7 /* Assets.xcassets in Resources */,
 				8054BE371F5C0A5900A67CB7 /* Main.storyboard in Resources */,
@@ -455,8 +491,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8090FE92218CDD2800420903 /* Diagonal.swift in Sources */,
+				8090FE94218CDD5A00420903 /* DiceBoard.swift in Sources */,
 				8054BE341F5C0A5900A67CB7 /* ViewController.swift in Sources */,
+				8090FE8E218CD02300420903 /* Dice.swift in Sources */,
 				8054BE321F5C0A5900A67CB7 /* AppDelegate.swift in Sources */,
+				8090FE96218CE17300420903 /* DiceSwapDirection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +504,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8054BE471F5C0A5900A67CB7 /* DicePuzzleTests.swift in Sources */,
+				8090FE90218CD02E00420903 /* DiceTests.swift in Sources */,
+				8090FE8A218CC47200420903 /* DiceBoardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,12 +683,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DicePuzzleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pl.mniedbach.DicePuzzleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DicePuzzle.app/DicePuzzle";
 			};
@@ -659,6 +702,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DicePuzzleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
