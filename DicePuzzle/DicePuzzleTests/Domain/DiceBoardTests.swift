@@ -11,13 +11,6 @@ class DiceBoardTests: XCTestCase {
         XCTAssertEqual(DiceBoard().size, DiceBoard.defaultSize)
     }
 
-    func testInitializedBoardDoesntContainsDicesOutsideBoard() {
-        let sut = DiceBoard(size: 1)
-
-        XCTAssertNil(sut.dice(atRow: 0, col: 1))
-        XCTAssertNil(sut.dice(atRow: 1, col: 0))
-    }
-
     func testNewBoardContainsOnes() {
         let sut = DiceBoard(size: 2)
 
@@ -95,7 +88,7 @@ class DiceBoardTests: XCTestCase {
         for row in 0..<board.size {
             var dicesRow = [Dice]()
             for col in 0..<board.size {
-                dicesRow.append(board.dice(atRow: row, col: col)!)
+                dicesRow.append(board.dice(atRow: row, col: col))
             }
             dices.append(dicesRow)
         }

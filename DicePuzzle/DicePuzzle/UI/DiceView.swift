@@ -7,11 +7,15 @@ import UIKit
 
 @IBDesignable
 class DiceView: UIView {
-    private let label = UILabel()
+    private let label = UILabel(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
+    }
+
+    func set(_ dice: Dice) {
+        label.text = "\(dice.rawValue)"
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -20,23 +24,12 @@ class DiceView: UIView {
     }
 
     private func initialize() {
+        backgroundColor = .lightGray
         initializeLabel()
-        createConstraints()
     }
 
     private func initializeLabel() {
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "1"
-        label.textAlignment = .center
         addSubview(label)
-    }
-
-    private func createConstraints() {
-        NSLayoutConstraint.activate([
-            leadingAnchor.constraint(equalTo: label.leadingAnchor),
-            trailingAnchor.constraint(equalTo: label.trailingAnchor),
-            topAnchor.constraint(equalTo: label.topAnchor),
-            bottomAnchor.constraint(equalTo: label.bottomAnchor),
-        ])
     }
 }

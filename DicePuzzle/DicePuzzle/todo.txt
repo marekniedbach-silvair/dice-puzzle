@@ -11,15 +11,23 @@ y | y | y | y
 
 ----
 
-DiceBoardView
+swiping right 2+ row
+swiping left
+swiping top
+swiping bottom
+swiping diagonals
 
-DiceRandomizer
+== UI ==
+Different screens
+DiceBoardView
 UI Dice screen
 - display diceboard
 - events handling (touches, buttons, etc)
-
-Swap counting
-Play timer
-UI Dice screen
 - display points
 - display timer
+Polish UI
+
+== DOMAIN ==
+DiceRandomizer
+Swap counting
+Play timer

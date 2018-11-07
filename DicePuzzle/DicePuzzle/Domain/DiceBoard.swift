@@ -17,9 +17,7 @@ public class DiceBoard {
         self.dices = Array(repeating: row, count: size)
     }
 
-    public func dice(atRow row: Int, col: Int) -> Dice? {
-        guard isValidPosition(atRow: row, col: col) else { return nil }
-
+    public func dice(atRow row: Int, col: Int) -> Dice {
         return dices[row][col]
     }
 
@@ -44,10 +42,6 @@ public class DiceBoard {
                 swapDice(atRow: i, col: size - i - 1, direction: direction)
             }
         }
-    }
-
-    private func isValidPosition(atRow row: Int, col: Int) -> Bool {
-        return row < size && col < size
     }
 
     private func swapDice(atRow row: Int, col: Int, direction: DiceSwapDirection) {

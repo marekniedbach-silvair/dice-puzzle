@@ -45,6 +45,20 @@ class DiceBoardUITests: XCTestCase {
         XCTAssertEqual(dice(at: 3, 3).value, "1")
     }
 
+    func testSwipeFirstRowRightShouldIncreaseDiceValues() {
+        dice(at: 0, 0).swipeRight()
+        XCTAssertEqual(dice(at: 0, 0).value, "2")
+        XCTAssertEqual(dice(at: 0, 1).value, "2")
+        XCTAssertEqual(dice(at: 0, 2).value, "2")
+        XCTAssertEqual(dice(at: 0, 3).value, "2")
+
+        dice(at: 0, 0).swipeRight()
+        XCTAssertEqual(dice(at: 0, 0).value, "3")
+        XCTAssertEqual(dice(at: 0, 1).value, "3")
+        XCTAssertEqual(dice(at: 0, 2).value, "3")
+        XCTAssertEqual(dice(at: 0, 3).value, "3")
+    }
+
     private func dice(at row: Int, _ col: Int) -> XCUIElement {
         return app.otherElements["dice_\(row)_\(col)"]
     }
