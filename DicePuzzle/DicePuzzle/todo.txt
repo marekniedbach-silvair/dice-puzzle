@@ -1,1 +1,25 @@
 
+x | x | x | x
+--------------
+x | x | x | x
+--------------
+x | x | x | x
+--------------
+y | y | y | y
+
+
+
+----
+
+DiceBoardView
+
+DiceRandomizer
+UI Dice screen
+- display diceboard
+- events handling (touches, buttons, etc)
+
+Swap counting
+Play timer
+UI Dice screen
+- display points
+- display timer

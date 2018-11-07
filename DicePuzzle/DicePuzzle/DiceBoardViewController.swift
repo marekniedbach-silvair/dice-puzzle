@@ -1,14 +1,11 @@
 //
-//  ViewController.swift
-//  DicePuzzle
-//
 //  Created by Marek Niedbach on 03.09.2017.
 //  Copyright © 2017 Marek Niedbach. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class DiceBoardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

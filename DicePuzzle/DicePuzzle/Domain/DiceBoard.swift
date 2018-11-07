@@ -1,7 +1,4 @@
 //
-//  DiceBoard.swift
-//  DicePuzzle
-//
 //  Created by Marek Niedbach on 02/11/2018.
 //  Copyright © 2018 Marek Niedbach. All rights reserved.
 //
@@ -9,12 +6,15 @@
 import Foundation
 
 public class DiceBoard {
+    public static let defaultSize = 4
+    
     public var size: Int { return dices.count }
     public var isResolved: Bool { return Set(dices.flatMap{$0}).count == 1 }
     private var dices: [[Dice]]
 
-    public init(size: Int) {
-        self.dices = Array(repeating: Array(repeating: Dice.one, count: size), count: size)
+    public init(size: Int = DiceBoard.defaultSize) {
+        let row = Array(repeating: Dice.one, count: size)
+        self.dices = Array(repeating: row, count: size)
     }
 
     public func dice(atRow row: Int, col: Int) -> Dice? {
@@ -42,7 +42,6 @@ public class DiceBoard {
                 swapDice(atRow: i, col: i, direction: direction)
             case .sinister:
                 swapDice(atRow: i, col: size - i - 1, direction: direction)
-                break
             }
         }
     }

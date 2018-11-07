@@ -1,7 +1,4 @@
 //
-//  DiceBoardTests.swift
-//  DicePuzzleTests
-//
 //  Created by Marek Niedbach on 02/11/2018.
 //  Copyright © 2018 Marek Niedbach. All rights reserved.
 //
@@ -10,18 +7,22 @@ import XCTest
 import DicePuzzle
 
 class DiceBoardTests: XCTestCase {
+    func testDiceBoardDefaultSize() {
+        XCTAssertEqual(DiceBoard().size, DiceBoard.defaultSize)
+    }
+
+    func testInitializedBoardDoesntContainsDicesOutsideBoard() {
+        let sut = DiceBoard(size: 1)
+
+        XCTAssertNil(sut.dice(atRow: 0, col: 1))
+        XCTAssertNil(sut.dice(atRow: 1, col: 0))
+    }
+
     func testNewBoardContainsOnes() {
         let sut = DiceBoard(size: 2)
 
         XCTAssertEqual(dices(in: sut), [[.one, .one],
                                         [.one, .one]])
-    }
-
-    func testInitializedBoardDontContainsDicesOutsideBoard() {
-        let sut = DiceBoard(size: 1)
-
-        XCTAssertNil(sut.dice(atRow: 0, col: 1))
-        XCTAssertNil(sut.dice(atRow: 1, col: 0))
     }
 
     func testBoardSize() {
@@ -91,14 +92,10 @@ class DiceBoardTests: XCTestCase {
 
     private func dices(in board: DiceBoard) -> [[Dice]] {
         var dices = [[Dice]]()
-        for row in 0... {
-            guard board.dice(atRow: row, col: 0) != nil else { break }
-
+        for row in 0..<board.size {
             var dicesRow = [Dice]()
-            for col in 0... {
-                guard let dice = board.dice(atRow: row, col: col) else { break }
-
-                dicesRow.append(dice)
+            for col in 0..<board.size {
+                dicesRow.append(board.dice(atRow: row, col: col)!)
             }
             dices.append(dicesRow)
         }
