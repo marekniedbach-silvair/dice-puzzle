@@ -64,14 +64,14 @@ class DiceBoardView: UIView {
         let col = Int(location.x) / diceSize
 
         switch recognizer.direction {
-        case .left:
-            swipe(row: row, direction: .forward)
         case .right:
+            swipe(row: row, direction: .forward)
+        case .left:
             swipe(row: row, direction: .backward)
         case .up:
             swipe(col: col, direction: .backward)
         case .down:
-            swipe(col: col, direction: .backward)
+            swipe(col: col, direction: .forward)
         default:
             break
         }
@@ -84,7 +84,7 @@ class DiceBoardView: UIView {
 
     private func swipe(col: Int, direction: DiceSwapDirection) {
         board.swap(colAt: col, direction: direction)
-        reloadRow(at: col)
+        reloadColumn(at: col)
     }
 
     private func reloadRow(at row: Int) {
