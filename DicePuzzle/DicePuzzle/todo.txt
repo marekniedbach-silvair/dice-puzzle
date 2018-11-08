@@ -10,6 +10,11 @@ y | y | y | y
 
 
 ----
+DiceBoardView
+DiceBoardView should not know when which dice should be reload
+
+one recognizer in diceBoardView?
+
 
 swiping right 2+ row
 swiping left
@@ -17,9 +22,13 @@ swiping top
 swiping bottom
 swiping diagonals
 
+move recognizer to diceBoard instead of diceView
+
 == UI ==
 Different screens
-DiceBoardView
+
+dices position in DiceBoardView
+
 UI Dice screen
 - display diceboard
 - events handling (touches, buttons, etc)

@@ -23,40 +23,71 @@ class DiceBoardUITests: XCTestCase {
         XCTAssertTrue(app.navigationBars["Dice Puzzle"].exists)
     }
 
-    func testShowDicesWithInitialValues() {
-        XCTAssertEqual(dice(at: 0, 0).value, "1")
-        XCTAssertEqual(dice(at: 0, 1).value, "1")
-        XCTAssertEqual(dice(at: 0, 2).value, "1")
-        XCTAssertEqual(dice(at: 0, 3).value, "1")
+    func testSwipingDices() {
+        assert(row: 0, toBe: "1", "1", "1", "1")
+        assert(row: 1, toBe: "1", "1", "1", "1")
+        assert(row: 2, toBe: "1", "1", "1", "1")
+        assert(row: 3, toBe: "1", "1", "1", "1")
 
-        XCTAssertEqual(dice(at: 1, 0).value, "1")
-        XCTAssertEqual(dice(at: 1, 1).value, "1")
-        XCTAssertEqual(dice(at: 1, 2).value, "1")
-        XCTAssertEqual(dice(at: 1, 3).value, "1")
+        dice(at: 0, 0).swipeRight()
+        assert(row: 0, toBe: "2", "2", "2", "2")
 
-        XCTAssertEqual(dice(at: 2, 0).value, "1")
-        XCTAssertEqual(dice(at: 2, 1).value, "1")
-        XCTAssertEqual(dice(at: 2, 2).value, "1")
-        XCTAssertEqual(dice(at: 2, 3).value, "1")
+        dice(at: 0, 3).swipeLeft()
+        assert(row: 0, toBe: "1", "1", "1", "1")
 
-        XCTAssertEqual(dice(at: 3, 0).value, "1")
-        XCTAssertEqual(dice(at: 3, 1).value, "1")
-        XCTAssertEqual(dice(at: 3, 2).value, "1")
-        XCTAssertEqual(dice(at: 3, 3).value, "1")
+        dice(at: 1, 1).swipeRight()
+        assert(row: 1, toBe: "2", "2", "2", "2")
+
+        dice(at: 1, 2).swipeLeft()
+        assert(row: 1, toBe: "1", "1", "1", "1")
+
+        dice(at: 2, 2).swipeRight()
+        assert(row: 2, toBe: "2", "2", "2", "2")
+
+        dice(at: 2, 2).swipeLeft()
+        assert(row: 2, toBe: "1", "1", "1", "1")
+
+        dice(at: 3, 3).swipeRight()
+        assert(row: 3, toBe: "2", "2", "2", "2")
+
+        dice(at: 3, 0).swipeLeft()
+        assert(row: 3, toBe: "1", "1", "1", "1")
+
+        dice(at: 0, 0).swipeDown()
+        assert(col: 0, toBe: "2", "2", "2", "2")
+
+        dice(at: 3, 0).swipeUp()
+        assert(col: 0, toBe: "1", "1", "1", "1")
+
+        dice(at: 1, 1).swipeDown()
+        assert(col: 1, toBe: "2", "2", "2", "2")
+
+        dice(at: 2, 1).swipeUp()
+        assert(col: 1, toBe: "1", "1", "1", "1")
+
+        dice(at: 2, 2).swipeDown()
+        assert(col: 2, toBe: "2", "2", "2", "2")
+
+        dice(at: 1, 2).swipeUp()
+        assert(col: 2, toBe: "1", "1", "1", "1")
+
+        dice(at: 3, 3).swipeDown()
+        assert(col: 3, toBe: "2", "2", "2", "2")
+
+        dice(at: 0, 3).swipeUp()
+        assert(col: 3, toBe: "1", "1", "1", "1")
     }
 
-    func testSwipeFirstRowRightShouldIncreaseDiceValues() {
-        dice(at: 0, 0).swipeRight()
-        XCTAssertEqual(dice(at: 0, 0).value, "2")
-        XCTAssertEqual(dice(at: 0, 1).value, "2")
-        XCTAssertEqual(dice(at: 0, 2).value, "2")
-        XCTAssertEqual(dice(at: 0, 3).value, "2")
+    private func assert(row: Int, toBe dices: String..., file: StaticString = #file, line: UInt = #line) {
+        for i in 0..<dices.count {
+            XCTAssertEqual(dice(at: row, i).value, dices[i], file: file, line: line)
+        }
+    }
 
-        dice(at: 0, 0).swipeRight()
-        XCTAssertEqual(dice(at: 0, 0).value, "3")
-        XCTAssertEqual(dice(at: 0, 1).value, "3")
-        XCTAssertEqual(dice(at: 0, 2).value, "3")
-        XCTAssertEqual(dice(at: 0, 3).value, "3")
+    private func assert(col: Int, toBe dices: String..., file: StaticString = #file, line: UInt = #line) {
+        for i in 0..<dices.count {
+            XCTAssertEqual(dice(at: i, col).value, dices[i], file: file, line: line)
+        }
     }
 
     private func dice(at row: Int, _ col: Int) -> XCUIElement {
