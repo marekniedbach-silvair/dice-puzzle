@@ -5,11 +5,16 @@
 
 import Foundation
 
+public protocol DiceBoardDelegate: class {
+    func diceBoard(_ diceBoard: DiceBoard, didUpdateDiceAt position: DicePosition)
+}
+
 public class DiceBoard {
     public static let defaultSize = 4
     
     public var size: Int { return dices.count }
     public var isResolved: Bool { return Set(dices.flatMap{$0}).count == 1 }
+    public weak var delegate: DiceBoardDelegate?
     private var dices: [[Dice]]
 
     public init(size: Int = DiceBoard.defaultSize) {
@@ -17,34 +22,42 @@ public class DiceBoard {
         self.dices = Array(repeating: row, count: size)
     }
 
-    public func dice(atRow row: Int, col: Int) -> Dice {
-        return dices[row][col]
+    public func dice(at position: DicePosition) -> Dice {
+        return dices[position.row][position.col]
     }
 
     public func swap(rowAt row: Int, direction: DiceSwapDirection) {
         for col in 0..<size {
-            swapDice(atRow: row, col: col, direction: direction)
+            let position = DicePosition(row: row, col: col)
+            swapDice(at: position, direction: direction)
         }
     }
 
     public func swap(colAt col: Int, direction: DiceSwapDirection) {
         for row in 0..<size {
-            swapDice(atRow: row, col: col, direction: direction)
+            let position = DicePosition(row: row, col: col)
+            swapDice(at: position, direction: direction)
         }
     }
 
     public func swap(diagonal: Diagonal, direction: DiceSwapDirection) {
         for i in 0..<size {
-            switch diagonal {
-            case .dexter:
-                swapDice(atRow: i, col: i, direction: direction)
-            case .sinister:
-                swapDice(atRow: i, col: size - i - 1, direction: direction)
-            }
+            let position = dicePosition(on: diagonal, at: i)
+            swapDice(at: position, direction: direction)
         }
     }
 
-    private func swapDice(atRow row: Int, col: Int, direction: DiceSwapDirection) {
-        dices[row][col].swap(direction)
+    private func swapDice(at position: DicePosition, direction: DiceSwapDirection) {
+        dices[position.row][position.col].swap(direction)
+        delegate?.diceBoard(self, didUpdateDiceAt: position)
+    }
+
+    private func dicePosition(on diagonal: Diagonal, at row: Int) -> DicePosition {
+        switch diagonal {
+        case .dexter:
+            return DicePosition(row: row, col: row)
+        case .sinister:
+            return DicePosition(row: row, col: size - row - 1)
+        }
     }
 }

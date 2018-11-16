@@ -22,6 +22,7 @@
 		8090FE94218CDD5A00420903 /* DiceBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090FE93218CDD5A00420903 /* DiceBoard.swift */; };
 		8090FE96218CE17300420903 /* DiceSwapDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090FE95218CE17300420903 /* DiceSwapDirection.swift */; };
 		80A2755221920295003A0C5F /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A2755121920295003A0C5F /* DiceView.swift */; };
+		80CDFFDA219F14E700266F21 /* DicePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CDFFD9219F14E700266F21 /* DicePosition.swift */; };
 		8C29CD3D6056326D5B335F4B /* Pods_DicePuzzleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6EAAABD272F19CBCC2B2F0 /* Pods_DicePuzzleUITests.framework */; };
 		CC40F44651A89EEA2D6C1920 /* Pods_DicePuzzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3316CCC213A854C1ADC6AE /* Pods_DicePuzzle.framework */; };
 		D0739246AE01FC1C38799B57 /* Pods_DicePuzzleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868EA26801C5170A4D41956C /* Pods_DicePuzzleTests.framework */; };
@@ -69,6 +70,7 @@
 		8090FE93218CDD5A00420903 /* DiceBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceBoard.swift; sourceTree = "<group>"; };
 		8090FE95218CE17300420903 /* DiceSwapDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSwapDirection.swift; sourceTree = "<group>"; };
 		80A2755121920295003A0C5F /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
+		80CDFFD9219F14E700266F21 /* DicePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicePosition.swift; sourceTree = "<group>"; };
 		868EA26801C5170A4D41956C /* Pods_DicePuzzleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DicePuzzleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		894CEC8082356A248A416D38 /* Pods-DicePuzzleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DicePuzzleUITests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-DicePuzzleUITests/Pods-DicePuzzleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D6EAAABD272F19CBCC2B2F0 /* Pods_DicePuzzleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DicePuzzleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +189,7 @@
 				8090FE91218CDD2800420903 /* Diagonal.swift */,
 				8090FE93218CDD5A00420903 /* DiceBoard.swift */,
 				8090FE95218CE17300420903 /* DiceSwapDirection.swift */,
+				80CDFFD9219F14E700266F21 /* DicePosition.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				8090FE94218CDD5A00420903 /* DiceBoard.swift in Sources */,
 				8054BE341F5C0A5900A67CB7 /* DiceBoardViewController.swift in Sources */,
 				8090FE8E218CD02300420903 /* Dice.swift in Sources */,
+				80CDFFDA219F14E700266F21 /* DicePosition.swift in Sources */,
 				8054BE321F5C0A5900A67CB7 /* AppDelegate.swift in Sources */,
 				80A2755221920295003A0C5F /* DiceView.swift in Sources */,
 				803AFBF121933BAA00E3C2AB /* DiceBoardView.swift in Sources */,

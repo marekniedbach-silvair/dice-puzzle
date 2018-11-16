@@ -83,15 +83,41 @@ class DiceBoardTests: XCTestCase {
         XCTAssertTrue(sut.isResolved)
     }
 
+    func testBoardShouldNotifyDelegateIfDiceChanged() {
+        let sut = DiceBoard(size: 2)
+        let delegate = DiceBoardDelegateMock()
+        sut.delegate = delegate
+
+        sut.swap(rowAt: 0, direction: .forward)
+        sut.swap(colAt: 0, direction: .forward)
+        sut.swap(diagonal: .sinister, direction: .forward)
+
+        XCTAssertEqual(delegate.changedDiceAt, [DicePosition(row: 0, col: 0),
+                                                DicePosition(row: 0, col: 1),
+                                                DicePosition(row: 0, col: 0),
+                                                DicePosition(row: 1, col: 0),
+                                                DicePosition(row: 0, col: 1),
+                                                DicePosition(row: 1, col: 0)])
+    }
+
     private func dices(in board: DiceBoard) -> [[Dice]] {
         var dices = [[Dice]]()
         for row in 0..<board.size {
             var dicesRow = [Dice]()
             for col in 0..<board.size {
-                dicesRow.append(board.dice(atRow: row, col: col))
+                let position = DicePosition(row: row, col: col)
+                dicesRow.append(board.dice(at: position))
             }
             dices.append(dicesRow)
         }
         return dices
+    }
+}
+
+class DiceBoardDelegateMock: DiceBoardDelegate {
+    var changedDiceAt = [DicePosition]()
+
+    func diceBoard(_ diceBoard: DiceBoard, didUpdateDiceAt position: DicePosition) {
+        changedDiceAt.append(position)
     }
 }
