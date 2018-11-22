@@ -14,3 +14,7 @@ public struct DicePosition: Equatable {
         self.col = col
     }
 }
+
+extension DicePosition: CustomStringConvertible {
+    public var description: String { return "dice_\(row)_\(col)" }
+}

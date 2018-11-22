@@ -23,6 +23,7 @@
 		8090FE96218CE17300420903 /* DiceSwapDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090FE95218CE17300420903 /* DiceSwapDirection.swift */; };
 		80A2755221920295003A0C5F /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A2755121920295003A0C5F /* DiceView.swift */; };
 		80CDFFDA219F14E700266F21 /* DicePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CDFFD9219F14E700266F21 /* DicePosition.swift */; };
+		80CDFFDE21A34BA000266F21 /* DicePositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CDFFDD21A34BA000266F21 /* DicePositionTests.swift */; };
 		8C29CD3D6056326D5B335F4B /* Pods_DicePuzzleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6EAAABD272F19CBCC2B2F0 /* Pods_DicePuzzleUITests.framework */; };
 		CC40F44651A89EEA2D6C1920 /* Pods_DicePuzzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3316CCC213A854C1ADC6AE /* Pods_DicePuzzle.framework */; };
 		D0739246AE01FC1C38799B57 /* Pods_DicePuzzleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868EA26801C5170A4D41956C /* Pods_DicePuzzleTests.framework */; };
@@ -71,6 +72,7 @@
 		8090FE95218CE17300420903 /* DiceSwapDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSwapDirection.swift; sourceTree = "<group>"; };
 		80A2755121920295003A0C5F /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
 		80CDFFD9219F14E700266F21 /* DicePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicePosition.swift; sourceTree = "<group>"; };
+		80CDFFDD21A34BA000266F21 /* DicePositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicePositionTests.swift; sourceTree = "<group>"; };
 		868EA26801C5170A4D41956C /* Pods_DicePuzzleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DicePuzzleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		894CEC8082356A248A416D38 /* Pods-DicePuzzleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DicePuzzleUITests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-DicePuzzleUITests/Pods-DicePuzzleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D6EAAABD272F19CBCC2B2F0 /* Pods_DicePuzzleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DicePuzzleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +201,7 @@
 			children = (
 				8090FE8F218CD02E00420903 /* DiceTests.swift */,
 				8090FE89218CC47200420903 /* DiceBoardTests.swift */,
+				80CDFFDD21A34BA000266F21 /* DicePositionTests.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -293,16 +296,18 @@
 				TargetAttributes = {
 					8054BE2D1F5C0A5900A67CB7 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
 					};
 					8054BE411F5C0A5900A67CB7 = {
 						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
 						TestTargetID = 8054BE2D1F5C0A5900A67CB7;
 					};
 					8054BE4C1F5C0A5900A67CB7 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
 						TestTargetID = 8054BE2D1F5C0A5900A67CB7;
 					};
@@ -524,6 +529,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80CDFFDE21A34BA000266F21 /* DicePositionTests.swift in Sources */,
 				8090FE90218CD02E00420903 /* DiceTests.swift in Sources */,
 				8090FE8A218CC47200420903 /* DiceBoardTests.swift in Sources */,
 			);
@@ -678,7 +684,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pl.mniedbach.DicePuzzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -693,7 +700,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pl.mniedbach.DicePuzzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -711,7 +719,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DicePuzzle.app/DicePuzzle";
 			};
 			name = Debug;
@@ -729,7 +738,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pl.mniedbach.DicePuzzleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DicePuzzle.app/DicePuzzle";
 			};
 			name = Release;
@@ -745,7 +755,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pl.mniedbach.DicePuzzleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = DicePuzzle;
 			};
 			name = Debug;
@@ -761,7 +772,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pl.mniedbach.DicePuzzleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = DicePuzzle;
 			};
 			name = Release;

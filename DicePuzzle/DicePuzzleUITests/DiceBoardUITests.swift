@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import DicePuzzle
 
 class DiceBoardUITests: XCTestCase {
 
@@ -77,6 +78,14 @@ class DiceBoardUITests: XCTestCase {
         dice(at: 0, 3).swipeUp()
         assert(col: 3, toBe: "1", "1", "1", "1")
     }
+
+//    func testSwipeDexterFromTopLeftToRightBottom() {
+//        dice(at: 0, 0).press(forDuration: 0, thenDragTo: dice(at: 3, 3))
+//        assert(row: 0, toBe: "2", "1", "1", "1")
+//        assert(row: 1, toBe: "1", "2", "1", "1")
+//        assert(row: 2, toBe: "1", "1", "2", "1")
+//        assert(row: 3, toBe: "1", "1", "1", "2")
+//    }
 
     private func assert(row: Int, toBe dices: String..., file: StaticString = #file, line: UInt = #line) {
         for i in 0..<dices.count {

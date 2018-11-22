@@ -10,8 +10,8 @@ y | y | y | y
 
 
 ----
-DiceBoardView
 
+Change recognizers to own touch calculation
 
 swiping diagonals
 

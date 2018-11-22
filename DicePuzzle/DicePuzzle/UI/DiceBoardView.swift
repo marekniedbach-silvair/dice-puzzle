@@ -50,7 +50,7 @@ class DiceBoardView: UIView {
         board.delegate = self
     }
 
-    private func initGestureRecognizer(direction: UISwipeGestureRecognizerDirection) {
+    private func initGestureRecognizer(direction: UISwipeGestureRecognizer.Direction) {
         let recognizer = UISwipeGestureRecognizer(target: self, action: #selector(boardDidSwipe))
         recognizer.direction = direction
         addGestureRecognizer(recognizer)
@@ -58,7 +58,7 @@ class DiceBoardView: UIView {
 
     private func makeDice(at position: DicePosition) -> DiceView {
         let diceView = DiceView(frame: diceFrame(at: position))
-        diceView.accessibilityIdentifier = diceAccessibilityId(at: position)
+        diceView.accessibilityIdentifier = String(describing: position)
         diceView.set(dice(at: position))
         return diceView
     }
@@ -68,10 +68,6 @@ class DiceBoardView: UIView {
                       y: position.row * diceSize,
                       width: diceSize,
                       height: diceSize)
-    }
-
-    private func diceAccessibilityId(at position: DicePosition) -> String {
-        return "dice_\(position.row)_\(position.col)"
     }
 
     private func dice(at position: DicePosition) -> Dice {
