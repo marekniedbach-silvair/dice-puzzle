@@ -80,10 +80,10 @@ class DiceBoardView: UIView {
         let col = Int(location.x) / diceSize
 
         switch recognizer.direction {
-        case .right:
-            swipe(row: row, direction: .forward)
         case .left:
             swipe(row: row, direction: .backward)
+        case .right:
+            swipe(row: row, direction: .forward)
         case .up:
             swipe(col: col, direction: .backward)
         case .down:
