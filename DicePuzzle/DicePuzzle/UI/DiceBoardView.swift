@@ -7,9 +7,11 @@ import UIKit
 
 @IBDesignable
 class DiceBoardView: UIView {
-    fileprivate var dices = [[DiceView]]()
     fileprivate let board = DiceBoard()
-    fileprivate let diceSize = 80
+    fileprivate var dicesViews = [DicePosition: DiceView]()
+    private var diceSize: Int {
+        return Int(min(frame.width, frame.height)) / board.size
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,22 +23,30 @@ class DiceBoardView: UIView {
         initialize()
     }
 
-    func initialize() {
-        initDices()
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        for position in board.dicesPositions {
+            dicesViews[position]?.frame = diceFrame(at: position)
+        }
+    }
+
+    private func initialize() {
+        initDicesViews()
         initGestures()
         initBoard()
     }
 
-    private func initDices() {
-        for row in 0..<board.size {
-            var rowDices = [DiceView]()
-            for col in 0..<board.size {
-                let dice = makeDice(at: DicePosition(row: row, col: col))
-                addSubview(dice)
-                rowDices.append(dice)
-            }
-            dices.append(rowDices)
+    private func initDicesViews() {
+        for position in board.dicesPositions {
+            dicesViews[position] = initDiceView(at: position)
         }
+    }
+
+    private func initDiceView(at position: DicePosition) -> DiceView {
+        let diceView = DiceView()
+        diceView.accessibilityIdentifier = String(describing: position)
+        addSubview(diceView)
+        return diceView
     }
 
     private func initGestures() {
@@ -46,21 +56,14 @@ class DiceBoardView: UIView {
         initGestureRecognizer(direction: .up)
     }
 
-    private func initBoard() {
-        board.delegate = self
-    }
-
     private func initGestureRecognizer(direction: UISwipeGestureRecognizer.Direction) {
         let recognizer = UISwipeGestureRecognizer(target: self, action: #selector(boardDidSwipe))
         recognizer.direction = direction
         addGestureRecognizer(recognizer)
     }
 
-    private func makeDice(at position: DicePosition) -> DiceView {
-        let diceView = DiceView(frame: diceFrame(at: position))
-        diceView.accessibilityIdentifier = String(describing: position)
-        diceView.set(dice(at: position))
-        return diceView
+    private func initBoard() {
+        board.delegate = self
     }
 
     private func diceFrame(at position: DicePosition) -> CGRect {
@@ -70,10 +73,6 @@ class DiceBoardView: UIView {
                       height: diceSize)
     }
 
-    private func dice(at position: DicePosition) -> Dice {
-        return board.dice(at: position)
-    }
-
     @objc private func boardDidSwipe(_ recognizer: UISwipeGestureRecognizer) {
         let location = recognizer.location(in: self)
         let row = Int(location.y) / diceSize
@@ -81,34 +80,22 @@ class DiceBoardView: UIView {
 
         switch recognizer.direction {
         case .left:
-            swipe(row: row, direction: .backward)
+            board.swap(rowAt: row, direction: .backward)
         case .right:
-            swipe(row: row, direction: .forward)
+            board.swap(rowAt: row, direction: .forward)
         case .up:
-            swipe(col: col, direction: .backward)
+            board.swap(colAt: col, direction: .backward)
         case .down:
-            swipe(col: col, direction: .forward)
+            board.swap(colAt: col, direction: .forward)
         default:
             break
         }
-    }
-
-    private func swipe(row: Int, direction: DiceSwapDirection) {
-        board.swap(rowAt: row, direction: direction)
-    }
-
-    private func swipe(col: Int, direction: DiceSwapDirection) {
-        board.swap(colAt: col, direction: direction)
     }
 }
 
 extension DiceBoardView: DiceBoardDelegate {
     func diceBoard(_ diceBoard: DiceBoard, didUpdateDiceAt position: DicePosition) {
         let dice = board.dice(at: position)
-        diceView(at: position).set(dice)
-    }
-
-    private func diceView(at position: DicePosition) -> DiceView {
-        return dices[position.row][position.col]
+        dicesViews[position]?.set(dice)
     }
 }

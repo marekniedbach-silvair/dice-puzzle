@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct DicePosition: Equatable {
+public struct DicePosition: Hashable {
     public let row: Int
     public let col: Int
 

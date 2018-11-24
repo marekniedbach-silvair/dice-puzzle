@@ -14,6 +14,9 @@ public class DiceBoard {
 
     public var size: Int { return dices.count }
     public var isResolved: Bool { return Set(dices.flatMap {$0}).count == 1 }
+    public var dicesPositions: [DicePosition] {
+        return (0..<size*size).map { DicePosition(row: $0 / size, col: $0 % size) }
+    }
     public weak var delegate: DiceBoardDelegate?
     private var dices: [[Dice]]
 

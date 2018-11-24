@@ -100,6 +100,15 @@ class DiceBoardTests: XCTestCase {
                                                 DicePosition(row: 1, col: 0)])
     }
 
+    func testReturnsAllDicesPositions() {
+        XCTAssertEqual(DiceBoard(size: 1).dicesPositions, [DicePosition(row: 0, col: 0)])
+
+        XCTAssertEqual(DiceBoard(size: 2).dicesPositions, [DicePosition(row: 0, col: 0),
+                                                          DicePosition(row: 0, col: 1),
+                                                          DicePosition(row: 1, col: 0),
+                                                          DicePosition(row: 1, col: 1)])
+    }
+
     private func dices(in board: DiceBoard) -> [[Dice]] {
         var dices = [[Dice]]()
         for row in 0..<board.size {
