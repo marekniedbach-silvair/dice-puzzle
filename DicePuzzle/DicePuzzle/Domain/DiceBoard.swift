@@ -11,9 +11,9 @@ public protocol DiceBoardDelegate: class {
 
 public class DiceBoard {
     public static let defaultSize = 4
-    
+
     public var size: Int { return dices.count }
-    public var isResolved: Bool { return Set(dices.flatMap{$0}).count == 1 }
+    public var isResolved: Bool { return Set(dices.flatMap {$0}).count == 1 }
     public weak var delegate: DiceBoardDelegate?
     private var dices: [[Dice]]
 
@@ -41,8 +41,8 @@ public class DiceBoard {
     }
 
     public func swap(diagonal: Diagonal, direction: DiceSwapDirection) {
-        for i in 0..<size {
-            let position = dicePosition(on: diagonal, at: i)
+        for offset in 0..<size {
+            let position = dicePosition(on: diagonal, at: offset)
             swapDice(at: position, direction: direction)
         }
     }

@@ -12,7 +12,7 @@ import DicePuzzle
 class DiceBoardUITests: XCTestCase {
 
     let app = XCUIApplication()
-        
+
     override func setUp() {
         super.setUp()
 
@@ -25,77 +25,45 @@ class DiceBoardUITests: XCTestCase {
     }
 
     func testSwipingDices() {
-        assert(row: 0, toBe: "1", "1", "1", "1")
-        assert(row: 1, toBe: "1", "1", "1", "1")
-        assert(row: 2, toBe: "1", "1", "1", "1")
-        assert(row: 3, toBe: "1", "1", "1", "1")
-
         dice(at: 0, 0).swipeRight()
-        assert(row: 0, toBe: "2", "2", "2", "2")
-
-        dice(at: 0, 3).swipeLeft()
-        assert(row: 0, toBe: "1", "1", "1", "1")
-
-        dice(at: 1, 1).swipeRight()
-        assert(row: 1, toBe: "2", "2", "2", "2")
-
-        dice(at: 1, 2).swipeLeft()
-        assert(row: 1, toBe: "1", "1", "1", "1")
-
-        dice(at: 2, 2).swipeRight()
-        assert(row: 2, toBe: "2", "2", "2", "2")
-
-        dice(at: 2, 2).swipeLeft()
-        assert(row: 2, toBe: "1", "1", "1", "1")
-
-        dice(at: 3, 3).swipeRight()
-        assert(row: 3, toBe: "2", "2", "2", "2")
-
-        dice(at: 3, 0).swipeLeft()
-        assert(row: 3, toBe: "1", "1", "1", "1")
+        dice(at: 1, 3).swipeLeft()
+        dice(at: 2, 0).swipeRight()
+        dice(at: 3, 3).swipeLeft()
 
         dice(at: 0, 0).swipeDown()
-        assert(col: 0, toBe: "2", "2", "2", "2")
+        dice(at: 3, 1).swipeUp()
+        dice(at: 0, 2).swipeDown()
+        dice(at: 3, 3).swipeUp()
 
-        dice(at: 3, 0).swipeUp()
-        assert(col: 0, toBe: "1", "1", "1", "1")
+        dice(at: 0, 0).swipeRight()
+        dice(at: 0, 0).swipeRight()
+        dice(at: 0, 0).swipeRight()
+        dice(at: 0, 0).swipeRight()
+        dice(at: 0, 0).swipeRight()
+        dice(at: 0, 0).swipeRight()
 
-        dice(at: 1, 1).swipeDown()
-        assert(col: 1, toBe: "2", "2", "2", "2")
+        dice(at: 1, 0).swipeLeft()
+        dice(at: 1, 0).swipeLeft()
+        dice(at: 1, 0).swipeLeft()
+        dice(at: 1, 0).swipeLeft()
+        dice(at: 1, 0).swipeLeft()
+        dice(at: 1, 0).swipeLeft()
 
-        dice(at: 2, 1).swipeUp()
-        assert(col: 1, toBe: "1", "1", "1", "1")
-
-        dice(at: 2, 2).swipeDown()
-        assert(col: 2, toBe: "2", "2", "2", "2")
-
-        dice(at: 1, 2).swipeUp()
-        assert(col: 2, toBe: "1", "1", "1", "1")
-
-        dice(at: 3, 3).swipeDown()
-        assert(col: 3, toBe: "2", "2", "2", "2")
-
-        dice(at: 0, 3).swipeUp()
-        assert(col: 3, toBe: "1", "1", "1", "1")
+        assert(row: 0, toBe: "3", "1", "3", "1")
+        assert(row: 1, toBe: "1", "5", "1", "5")
+        assert(row: 2, toBe: "3", "1", "3", "1")
+        assert(row: 3, toBe: "1", "5", "1", "5")
     }
 
-//    func testSwipeDexterFromTopLeftToRightBottom() {
-//        dice(at: 0, 0).press(forDuration: 0, thenDragTo: dice(at: 3, 3))
-//        assert(row: 0, toBe: "2", "1", "1", "1")
-//        assert(row: 1, toBe: "1", "2", "1", "1")
-//        assert(row: 2, toBe: "1", "1", "2", "1")
-//        assert(row: 3, toBe: "1", "1", "1", "2")
-//    }
-
     private func assert(row: Int, toBe dices: String..., file: StaticString = #file, line: UInt = #line) {
-        for i in 0..<dices.count {
-            XCTAssertEqual(dice(at: row, i).value, dices[i], file: file, line: line)
+        for col in 0..<dices.count {
+            XCTAssertEqual(dice(at: row, col).value, dices[col], file: file, line: line)
         }
     }
 
     private func assert(col: Int, toBe dices: String..., file: StaticString = #file, line: UInt = #line) {
-        for i in 0..<dices.count {
-            XCTAssertEqual(dice(at: i, col).value, dices[i], file: file, line: line)
+        for row in 0..<dices.count {
+            XCTAssertEqual(dice(at: row, col).value, dices[row], file: file, line: line)
         }
     }
 
