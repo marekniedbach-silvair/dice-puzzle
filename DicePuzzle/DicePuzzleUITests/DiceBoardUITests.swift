@@ -25,29 +25,29 @@ class DiceBoardUITests: XCTestCase {
     }
 
     func testSwipingDices() {
-        dice(at: 0, 0).swipeRight()
-        dice(at: 1, 3).swipeLeft()
-        dice(at: 2, 0).swipeRight()
-        dice(at: 3, 3).swipeLeft()
+        swipeBoard(fromDiceAt: 0, 0, to: 0, 3)
+        swipeBoard(fromDiceAt: 1, 3, to: 1, 0)
+        swipeBoard(fromDiceAt: 2, 0, to: 2, 3)
+        swipeBoard(fromDiceAt: 3, 3, to: 3, 0)
 
-        dice(at: 0, 0).swipeDown()
-        dice(at: 3, 1).swipeUp()
-        dice(at: 0, 2).swipeDown()
-        dice(at: 3, 3).swipeUp()
+        swipeBoard(fromDiceAt: 0, 0, to: 3, 0)
+        swipeBoard(fromDiceAt: 3, 1, to: 0, 1)
+        swipeBoard(fromDiceAt: 0, 2, to: 3, 2)
+        swipeBoard(fromDiceAt: 3, 3, to: 0, 3)
 
-        dice(at: 0, 0).swipeRight()
-        dice(at: 0, 0).swipeRight()
-        dice(at: 0, 0).swipeRight()
-        dice(at: 0, 0).swipeRight()
-        dice(at: 0, 0).swipeRight()
-        dice(at: 0, 0).swipeRight()
+        swipeBoard(fromDiceAt: 0, 0, to: 0, 3)
+        swipeBoard(fromDiceAt: 0, 0, to: 0, 3)
+        swipeBoard(fromDiceAt: 0, 0, to: 0, 3)
+        swipeBoard(fromDiceAt: 0, 0, to: 0, 3)
+        swipeBoard(fromDiceAt: 0, 0, to: 0, 3)
+        swipeBoard(fromDiceAt: 0, 0, to: 0, 3)
 
-        dice(at: 1, 0).swipeLeft()
-        dice(at: 1, 0).swipeLeft()
-        dice(at: 1, 0).swipeLeft()
-        dice(at: 1, 0).swipeLeft()
-        dice(at: 1, 0).swipeLeft()
-        dice(at: 1, 0).swipeLeft()
+        swipeBoard(fromDiceAt: 1, 3, to: 1, 0)
+        swipeBoard(fromDiceAt: 1, 3, to: 1, 0)
+        swipeBoard(fromDiceAt: 1, 3, to: 1, 0)
+        swipeBoard(fromDiceAt: 1, 3, to: 1, 0)
+        swipeBoard(fromDiceAt: 1, 3, to: 1, 0)
+        swipeBoard(fromDiceAt: 1, 3, to: 1, 0)
 
         assert(row: 0, toBe: "3", "1", "3", "1")
         assert(row: 1, toBe: "1", "5", "1", "5")
@@ -67,6 +67,10 @@ class DiceBoardUITests: XCTestCase {
         }
     }
 
+    private func swipeBoard(fromDiceAt startRow: Int, _ startCol: Int, to endRow: Int, _ endCol: Int) {
+        dice(at: startRow, startCol).swipe(to: dice(at: endRow, endCol))
+    }
+
     private func dice(at row: Int, _ col: Int) -> XCUIElement {
         return app.otherElements["dice_\(row)_\(col)"]
     }
@@ -74,4 +78,8 @@ class DiceBoardUITests: XCTestCase {
 
 private extension XCUIElement {
     var value: String { return staticTexts.firstMatch.label }
+
+    func swipe(to element: XCUIElement) {
+        press(forDuration: 0, thenDragTo: element)
+    }
 }
