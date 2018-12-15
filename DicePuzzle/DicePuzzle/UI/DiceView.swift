@@ -5,7 +5,6 @@
 
 import UIKit
 
-@IBDesignable
 class DiceView: UIView {
     private let label = UILabel()
 
@@ -28,7 +27,6 @@ class DiceView: UIView {
     }
 
     private func initializeLabel() {
-        label.text = "1"
         label.translatesAutoresizingMaskIntoConstraints = false
         addSubview(label)
         NSLayoutConstraint.activate([

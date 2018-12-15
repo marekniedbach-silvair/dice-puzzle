@@ -5,14 +5,13 @@
 
 import UIKit
 
-@IBDesignable
 class DiceBoardView: UIView {
     private let board: DiceBoard
     private let boardSwapper: BoardSwapper
     private var dicesViews = [DicePosition: DiceView]()
 
-    private var diceSize: Int {
-        return Int(min(frame.width, frame.height)) / board.size
+    private var diceSize: CGFloat {
+        return min(frame.width, frame.height) / CGFloat(board.size)
     }
 
     init(board: DiceBoard) {
@@ -28,8 +27,8 @@ class DiceBoardView: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        for position in board.dicesPositions {
-            dicesViews[position]?.frame = diceFrame(at: position)
+        for (position, view) in dicesViews {
+            view.frame = diceFrame(at: position)
         }
     }
 
@@ -48,19 +47,21 @@ class DiceBoardView: UIView {
     }
 
     private func initialize() {
-        initDicesViews()
         initBoard()
+        initDicesViews(at: board.dicesPositions)
     }
 
-    private func initDicesViews() {
-        for position in board.dicesPositions {
-            dicesViews[position] = initDiceView(at: position)
+    private func initDicesViews(at positions: [DicePosition]) {
+        for position in positions {
+            let dice = board.dice(at: position)
+            dicesViews[position] = initDiceView(at: position, with: dice)
         }
     }
 
-    private func initDiceView(at position: DicePosition) -> DiceView {
+    private func initDiceView(at position: DicePosition, with dice: Dice) -> DiceView {
         let diceView = DiceView()
         diceView.accessibilityIdentifier = String(describing: position)
+        diceView.set(dice)
         addSubview(diceView)
         return diceView
     }
@@ -70,15 +71,15 @@ class DiceBoardView: UIView {
     }
 
     private func diceFrame(at position: DicePosition) -> CGRect {
-        return CGRect(x: position.col * diceSize,
-                      y: position.row * diceSize,
+        return CGRect(x: CGFloat(position.col) * diceSize,
+                      y: CGFloat(position.row) * diceSize,
                       width: diceSize,
                       height: diceSize)
     }
 
     private func dicePosition(at location: CGPoint) -> DicePosition {
-        let row = Int(location.y) / diceSize
-        let col = Int(location.x) / diceSize
+        let row = Int(location.y / diceSize)
+        let col = Int(location.x / diceSize)
 
         return DicePosition(row: row, col: col)
     }

@@ -18,7 +18,6 @@ class DiceBoardViewController: UIViewController {
     private func loadDiceBoardView() {
         diceBoardView = DiceBoardView(board: DiceBoard())
         view.addSubview(diceBoardView)
-
         diceBoardView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             diceBoardView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
