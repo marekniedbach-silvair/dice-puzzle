@@ -64,3 +64,5 @@ public class DiceBoard {
         }
     }
 }
+
+extension DiceBoard: SwappableBoard {}

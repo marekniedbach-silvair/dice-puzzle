@@ -1,7 +1,4 @@
 //
-//  DicePositionTests.swift
-//  DicePuzzleTests
-//
 //  Created by Marek Niedbach on 19/11/2018.
 //  Copyright © 2018 Marek Niedbach. All rights reserved.
 //

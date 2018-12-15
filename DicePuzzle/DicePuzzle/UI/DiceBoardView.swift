@@ -7,23 +7,23 @@ import UIKit
 
 @IBDesignable
 class DiceBoardView: UIView {
-    fileprivate let board = DiceBoard()
-    fileprivate var dicesViews = [DicePosition: DiceView]()
-
-    private var moveStartPosition = DicePosition(row: 0, col: 0)
+    private let board: DiceBoard
+    private let boardSwapper: BoardSwapper
+    private var dicesViews = [DicePosition: DiceView]()
 
     private var diceSize: Int {
         return Int(min(frame.width, frame.height)) / board.size
     }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(board: DiceBoard) {
+        self.board = board
+        self.boardSwapper = BoardSwapper(board: board)
+        super.init(frame: .zero)
         initialize()
     }
 
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        initialize()
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func layoutSubviews() {
@@ -33,9 +33,22 @@ class DiceBoardView: UIView {
         }
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        guard let position = self.dicePosition(from: touches) else { return }
+
+        boardSwapper.begin(at: position)
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        guard let position = dicePosition(from: touches) else { return }
+
+        boardSwapper.end(at: position)
+    }
+
     private func initialize() {
         initDicesViews()
-        initGestures()
         initBoard()
     }
 
@@ -52,18 +65,6 @@ class DiceBoardView: UIView {
         return diceView
     }
 
-    private func initGestures() {
-        initGestureRecognizer(direction: .left)
-        initGestureRecognizer(direction: .down)
-        initGestureRecognizer(direction: .up)
-    }
-
-    private func initGestureRecognizer(direction: UISwipeGestureRecognizer.Direction) {
-        let recognizer = UISwipeGestureRecognizer(target: self, action: #selector(boardDidSwipe))
-        recognizer.direction = direction
-        addGestureRecognizer(recognizer)
-    }
-
     private func initBoard() {
         board.delegate = self
     }
@@ -75,22 +76,6 @@ class DiceBoardView: UIView {
                       height: diceSize)
     }
 
-    @objc private func boardDidSwipe(_ recognizer: UISwipeGestureRecognizer) {
-        let location = recognizer.location(in: self)
-        let position = dicePosition(at: location)
-
-        switch recognizer.direction {
-        case .left:
-            board.swap(rowAt: position.row, direction: .backward)
-        case .up:
-            board.swap(colAt: position.col, direction: .backward)
-        case .down:
-            board.swap(colAt: position.col, direction: .forward)
-        default:
-            break
-        }
-    }
-
     private func dicePosition(at location: CGPoint) -> DicePosition {
         let row = Int(location.y) / diceSize
         let col = Int(location.x) / diceSize
@@ -98,24 +83,10 @@ class DiceBoardView: UIView {
         return DicePosition(row: row, col: col)
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
+    private func dicePosition(from touches: Set<UITouch>) -> DicePosition? {
+        guard let touch = touches.first else { return nil }
 
-        guard let touch = touches.first else { return }
-
-        moveStartPosition = dicePosition(at: touch.location(in: self))
-    }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-
-        guard let touch = touches.first else { return }
-
-        let moveEndPosition = dicePosition(at: touch.location(in: self))
-
-        if moveStartPosition.row == moveEndPosition.row && moveStartPosition.col < moveEndPosition.col {
-            board.swap(rowAt: moveEndPosition.row, direction: .forward)
-        }
+        return dicePosition(at: touch.location(in: self))
     }
 }
 

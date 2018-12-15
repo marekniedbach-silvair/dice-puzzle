@@ -1,7 +1,4 @@
 //
-//  DicePuzzleUITests.swift
-//  DicePuzzleUITests
-//
 //  Created by Marek Niedbach on 03.09.2017.
 //  Copyright © 2017 Marek Niedbach. All rights reserved.
 //
@@ -49,10 +46,13 @@ class DiceBoardUITests: XCTestCase {
         swipeBoard(fromDiceAt: 1, 3, to: 1, 0)
         swipeBoard(fromDiceAt: 1, 3, to: 1, 0)
 
-        assert(row: 0, toBe: "3", "1", "3", "1")
-        assert(row: 1, toBe: "1", "5", "1", "5")
-        assert(row: 2, toBe: "3", "1", "3", "1")
-        assert(row: 3, toBe: "1", "5", "1", "5")
+        swipeBoard(fromDiceAt: 0, 0, to: 3, 3)
+        swipeBoard(fromDiceAt: 3, 0, to: 0, 3)
+
+        assert(row: 0, toBe: "4", "1", "3", "6")
+        assert(row: 1, toBe: "1", "6", "6", "5")
+        assert(row: 2, toBe: "3", "6", "4", "1")
+        assert(row: 3, toBe: "6", "5", "1", "6")
     }
 
     private func assert(row: Int, toBe dices: String..., file: StaticString = #file, line: UInt = #line) {

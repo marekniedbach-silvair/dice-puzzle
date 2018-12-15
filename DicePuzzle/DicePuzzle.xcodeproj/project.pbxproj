@@ -11,7 +11,6 @@
 		803AFBF121933BAA00E3C2AB /* DiceBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803AFBF021933BAA00E3C2AB /* DiceBoardView.swift */; };
 		8054BE321F5C0A5900A67CB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8054BE311F5C0A5900A67CB7 /* AppDelegate.swift */; };
 		8054BE341F5C0A5900A67CB7 /* DiceBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8054BE331F5C0A5900A67CB7 /* DiceBoardViewController.swift */; };
-		8054BE371F5C0A5900A67CB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8054BE351F5C0A5900A67CB7 /* Main.storyboard */; };
 		8054BE391F5C0A5900A67CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8054BE381F5C0A5900A67CB7 /* Assets.xcassets */; };
 		8054BE3C1F5C0A5900A67CB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8054BE3A1F5C0A5900A67CB7 /* LaunchScreen.storyboard */; };
 		8054BE521F5C0A5900A67CB7 /* DiceBoardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8054BE511F5C0A5900A67CB7 /* DiceBoardUITests.swift */; };
@@ -57,7 +56,6 @@
 		8054BE2E1F5C0A5900A67CB7 /* DicePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DicePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8054BE311F5C0A5900A67CB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8054BE331F5C0A5900A67CB7 /* DiceBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceBoardViewController.swift; sourceTree = "<group>"; };
-		8054BE361F5C0A5900A67CB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8054BE381F5C0A5900A67CB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8054BE3B1F5C0A5900A67CB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8054BE3D1F5C0A5900A67CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 				80A2755121920295003A0C5F /* DiceView.swift */,
 				803AFBF021933BAA00E3C2AB /* DiceBoardView.swift */,
 				8054BE331F5C0A5900A67CB7 /* DiceBoardViewController.swift */,
-				8054BE351F5C0A5900A67CB7 /* Main.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -348,7 +345,6 @@
 				8090FE88218CC40800420903 /* todo.txt in Resources */,
 				8054BE3C1F5C0A5900A67CB7 /* LaunchScreen.storyboard in Resources */,
 				8054BE391F5C0A5900A67CB7 /* Assets.xcassets in Resources */,
-				8054BE371F5C0A5900A67CB7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,14 +582,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8054BE351F5C0A5900A67CB7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8054BE361F5C0A5900A67CB7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8054BE3A1F5C0A5900A67CB7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -660,6 +648,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -711,6 +700,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -727,7 +717,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pl.mniedbach.DicePuzzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -742,7 +731,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pl.mniedbach.DicePuzzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -760,7 +748,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DicePuzzle.app/DicePuzzle";
 			};
 			name = Debug;
@@ -778,7 +765,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pl.mniedbach.DicePuzzleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DicePuzzle.app/DicePuzzle";
 			};
 			name = Release;
@@ -794,7 +780,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pl.mniedbach.DicePuzzleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = DicePuzzle;
 			};
 			name = Debug;
@@ -810,7 +795,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pl.mniedbach.DicePuzzleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = DicePuzzle;
 			};
 			name = Release;
