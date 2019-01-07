@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8007F97121E3A994006E7B4E /* BoardRandomizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8007F97021E3A994006E7B4E /* BoardRandomizerTests.swift */; };
 		8031B0F621B03A420016BC73 /* BoardSwapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8031B0F521B03A420016BC73 /* BoardSwapperTests.swift */; };
 		803AFBF121933BAA00E3C2AB /* DiceBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803AFBF021933BAA00E3C2AB /* DiceBoardView.swift */; };
 		8054BE321F5C0A5900A67CB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8054BE311F5C0A5900A67CB7 /* AppDelegate.swift */; };
@@ -51,6 +52,7 @@
 		0EA5865866B49E368E28AFEF /* Pods-DicePuzzleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DicePuzzleUITests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-DicePuzzleUITests/Pods-DicePuzzleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		38887B7CD01C8B2DDF4B3790 /* Pods-DicePuzzle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DicePuzzle.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-DicePuzzle/Pods-DicePuzzle.debug.xcconfig"; sourceTree = "<group>"; };
 		70CB1A89917F24C82705B914 /* Pods-DicePuzzleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DicePuzzleTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-DicePuzzleTests/Pods-DicePuzzleTests.release.xcconfig"; sourceTree = "<group>"; };
+		8007F97021E3A994006E7B4E /* BoardRandomizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRandomizerTests.swift; sourceTree = "<group>"; };
 		8031B0F521B03A420016BC73 /* BoardSwapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSwapperTests.swift; sourceTree = "<group>"; };
 		803AFBF021933BAA00E3C2AB /* DiceBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceBoardView.swift; sourceTree = "<group>"; };
 		8054BE2E1F5C0A5900A67CB7 /* DicePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DicePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +207,7 @@
 				8090FE89218CC47200420903 /* DiceBoardTests.swift */,
 				80CDFFDD21A34BA000266F21 /* DicePositionTests.swift */,
 				8031B0F521B03A420016BC73 /* BoardSwapperTests.swift */,
+				8007F97021E3A994006E7B4E /* BoardRandomizerTests.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8007F97121E3A994006E7B4E /* BoardRandomizerTests.swift in Sources */,
 				80CDFFDE21A34BA000266F21 /* DicePositionTests.swift in Sources */,
 				8090FE90218CD02E00420903 /* DiceTests.swift in Sources */,
 				8090FE8A218CC47200420903 /* DiceBoardTests.swift in Sources */,

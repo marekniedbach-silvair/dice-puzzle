@@ -16,8 +16,6 @@ public class BoardSwapper {
     private let board: SwappableBoard
     private var beginPosition = DicePosition(row: 0, col: 0)
     private var endPosition = DicePosition(row: 0, col: 0)
-    private var rowIndex: Int { return beginPosition.row }
-    private var colIndex: Int { return beginPosition.col }
     private var swappedOnDexter: Bool {
         return isOnDexter(beginPosition) && isOnDexter(endPosition)
     }
@@ -39,6 +37,9 @@ public class BoardSwapper {
     }
 
     private func detectSwap() {
+        let rowIndex = beginPosition.row
+        let colIndex = beginPosition.col
+
         switch positionChange() {
         case (rowChange: .unchanged, colChange: .incremented):
             board.swap(rowAt: rowIndex, direction: .forward)
